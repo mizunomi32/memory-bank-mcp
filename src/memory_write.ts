@@ -1,22 +1,19 @@
 import * as fs from "node:fs";
-import * as path from "node:path";
 
 export async function memoryWriteExecute(
-	targetDir: string | undefined,
-	filename: string,
+	targetFile: string | undefined,
 	content: string,
 ): Promise<string> {
-	if (!targetDir) {
-		return JSON.stringify({ error: "targetDirが指定されていません" });
-	}
-	if (!filename.endsWith(".md")) {
-		return JSON.stringify({ error: "ファイル名は.mdで終わる必要があります" });
+	if (!targetFile) {
+		return "targetFileが指定されていません";
 	}
 	try {
-		const filePath = path.join(targetDir, filename);
-		fs.writeFileSync(filePath, content, "utf-8");
-		return JSON.stringify({ success: true, filename });
+		if (!fs.existsSync(targetFile)) {
+			fs.writeFileSync(targetFile, "", "utf-8");
+		}
+		fs.writeFileSync(targetFile, content, "utf-8");
+		return "success";
 	} catch (e) {
-		return JSON.stringify({ error: String(e) });
+		return String(e);
 	}
 }
