@@ -7,7 +7,8 @@
 		"biome:lint": "biome lint .",
 		"biome:fix": "biome check --apply .",
 		"test": "vitest",
-		"start": "ts-node src/server.ts"
+		"start": "node dist/server.js",
+		"build": "tsc"
 	},
 	"dependencies": {
 		"fastmcp": "^1.21.0",
