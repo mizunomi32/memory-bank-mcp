@@ -1,5 +1,5 @@
 {
-	"name": "memory-bank-mcp",
+	"name": "@mizunomi32/memory-bank-mcp",
 	"packageManager": "yarn@4.9.1",
 	"scripts": {
 		"biome:check": "biome check .",
@@ -20,5 +20,14 @@
 		"typescript": "^5.8.3",
 		"vitest": "^3.1.1"
 	},
-	"bin": "src/server.ts"
+	"bin": "src/server.ts",
+	"publishConfig": {
+		"registry": "https://npm.pkg.github.com/"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/mizunomi32/memory-bank-mcp.git"
+	},
+	"version": "0.0.1",
+	"license": "MIT"
 }
