@@ -27,9 +27,10 @@ server.addTool({
 	description: "メモリーバンクのファイルを書き込み・更新します。",
 	parameters: z.object({
 		filename: z.string().describe("書き込むmdファイル名（例: note.md）"),
-		content: z.string().describe("書き込む内容")
+		content: z.string().describe("書き込む内容"),
 	}),
-	execute: async (args) => memoryWriteExecute(targetDir, args.filename, args.content),
+	execute: async (args) =>
+		memoryWriteExecute(targetDir, args.filename, args.content),
 });
 
 server.start({ transportType: "stdio" });

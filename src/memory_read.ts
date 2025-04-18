@@ -1,5 +1,5 @@
-import * as fs from "fs";
-import * as path from "path";
+import * as fs from "node:fs";
+import * as path from "node:path";
 
 export async function memoryReadExecute(targetDir?: string): Promise<string> {
 	if (!targetDir) {
@@ -17,4 +17,4 @@ export async function memoryReadExecute(targetDir?: string): Promise<string> {
 	} catch (e) {
 		return JSON.stringify({ error: String(e) });
 	}
-} 
+}
