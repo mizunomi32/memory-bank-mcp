@@ -17,7 +17,10 @@ jobs:
         with:
           node-version: '20'
           registry-url: 'https://npm.pkg.github.com/'
-
+      - name: Enable Corepack
+        run: corepack enable
+      - name: Set Yarn Berry
+        run: corepack prepare yarn@stable --activate
       - name: Install dependencies
         run: yarn install
 
