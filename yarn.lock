@@ -301,6 +301,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@mizunomi32/memory-bank-mcp@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "@mizunomi32/memory-bank-mcp@workspace:."
+  dependencies:
+    "@biomejs/biome": "npm:1.9.4"
+    "@types/node": "npm:^22.14.1"
+    fastmcp: "npm:^1.21.0"
+    typescript: "npm:^5.8.3"
+    vitest: "npm:^3.1.1"
+    zod: "npm:^3.24.3"
+  bin:
+    memory-bank-mcp: src/server.ts
+  languageName: unknown
+  linkType: soft
+
 "@modelcontextprotocol/sdk@npm:^1.6.0":
   version: 1.10.0
   resolution: "@modelcontextprotocol/sdk@npm:1.10.0"
@@ -1677,21 +1692,6 @@ __metadata:
   checksum: 10c0/7b4baa40b25964bb90e2121ee489ec38642127e48d0cc2b6baa442688d3fde6262bfdca86d6bbf6ba708784afcac168c06840c71facac70e390f5f759ac121b9
   languageName: node
   linkType: hard
-
-"memory-bank-mcp@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "memory-bank-mcp@workspace:."
-  dependencies:
-    "@biomejs/biome": "npm:1.9.4"
-    "@types/node": "npm:^22.14.1"
-    fastmcp: "npm:^1.21.0"
-    typescript: "npm:^5.8.3"
-    vitest: "npm:^3.1.1"
-    zod: "npm:^3.24.3"
-  bin:
-    memory-bank-mcp: src/server.ts
-  languageName: unknown
-  linkType: soft
 
 "merge-descriptors@npm:^2.0.0":
   version: 2.0.0
