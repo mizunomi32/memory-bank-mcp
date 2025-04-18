@@ -3,34 +3,21 @@ import * as path from "node:path";
 import { describe, expect, it } from "vitest";
 import { memoryReadExecute } from "./memory_read";
 
-// テスト用の一時ディレクトリを作ってmdファイルを用意する
-function setupTestDir() {
-	const testDir = path.join(__dirname, "test-memory-bank");
-	if (!fs.existsSync(testDir)) fs.mkdirSync(testDir);
-	fs.writeFileSync(path.join(testDir, "a.md"), "# A\n内容A");
-	fs.writeFileSync(path.join(testDir, "b.md"), "# B\n内容B");
-	fs.writeFileSync(path.join(testDir, "ignore.txt"), "これは無視される");
-	return testDir;
+function setupTestFile() {
+	const testFile = path.join(__dirname, "test-memory-bank-read.md");
+	fs.writeFileSync(testFile, "# テストファイル\n内容だよ");
+	return testFile;
 }
 
 describe("memoryReadExecute", () => {
-	it("mdファイルのファイル名と内容を全部返す", async () => {
-		const testDir = setupTestDir();
-		const resultStr = await memoryReadExecute(testDir);
-		const result = JSON.parse(resultStr);
-		expect(Array.isArray(result)).toBe(true);
-		expect(result.length).toBe(2);
-		expect(result).toEqual(
-			expect.arrayContaining([
-				expect.objectContaining({ filename: "a.md", content: "# A\n内容A" }),
-				expect.objectContaining({ filename: "b.md", content: "# B\n内容B" }),
-			]),
-		);
+	it("指定したファイルの内容を返す", async () => {
+		const testFile = setupTestFile();
+		const result = await memoryReadExecute(testFile);
+		expect(result).toBe("# テストファイル\n内容だよ");
 	});
 
-	it("targetDirが指定されていない場合はエラーを返す", async () => {
-		const resultStr = await memoryReadExecute(undefined);
-		const result = JSON.parse(resultStr);
-		expect(result.error).toBeDefined();
+	it("targetFileが指定されていない場合はエラーを返す", async () => {
+		const result = await memoryReadExecute(undefined);
+		expect(result).toContain("targetFileが指定されていません");
 	});
 });
