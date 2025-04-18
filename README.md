@@ -12,6 +12,18 @@ yarn start
 
 ---
 
+## ビルド方法
+
+TypeScriptのビルドはこれだけ！
+
+```sh
+yarn build
+```
+
+`dist` フォルダにjsファイルができるから、ビルド結果を確認したいときとかに使ってね！
+
+---
+
 ## Biomeについて
 
 このプロジェクトは[Biome](https://biomejs.dev/)でコードの整形やLintをしてるよ！
