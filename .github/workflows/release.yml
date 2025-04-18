@@ -27,21 +27,11 @@ jobs:
       - name: Build
         run: yarn build
 
-      - name: Extract release notes from CHANGELOG.md
-        id: changelog
-        run: |
-          RELEASE_NOTE=$(awk '/^## /{if(NR!=1)exit;next} NR>1{print}' CHANGELOG.md | awk '/^## /{exit} {print}' | sed '/^$/d')
-          echo "RELEASE_NOTE<<EOF" >> $GITHUB_OUTPUT
-          echo "$RELEASE_NOTE" >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
-
       - name: Create GitHub Release
         uses: elgohr/Github-Release-Action@v5
         with:
           tag: ${{ github.ref_name }}
-          name: ${{ github.ref_name }}
-          body: ${{ steps.changelog.outputs.RELEASE_NOTE }}
-          token: ${{ secrets.GITHUB_TOKEN }}
+          title: ${{ github.ref_name }}
 
       - name: Publish to GitHub Packages
         run: npm publish
