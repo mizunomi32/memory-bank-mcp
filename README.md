@@ -53,3 +53,19 @@ yarn build
 テストファイルは `*.test.ts` や `*.spec.ts` みたいな名前で作ってね。
 
 詳しくは[Vitest公式ガイド](https://vitest.dev/guide/)も見てみて！
+
+---
+
+## npxでの実行方法
+
+GitHub Packagesから直接npxで実行できるよ！
+（※ 事前に`.npmrc`の設定とGitHubのPersonal Access Tokenが必要だよ！）
+
+```sh
+# 例: .npmrcの設定
+echo '@mizunomi32:registry=https://npm.pkg.github.com' >> ~/.npmrc
+echo '//npm.pkg.github.com/:_authToken=YOUR_GITHUB_TOKEN' >> ~/.npmrc
+
+# npxで実行！
+npx @mizunomi32/memory-bank-mcp　/path/to/memory
+```

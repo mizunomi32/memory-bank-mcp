@@ -20,7 +20,9 @@
 		"typescript": "^5.8.3",
 		"vitest": "^3.1.1"
 	},
-	"bin": "src/server.ts",
+	"bin": {
+		"memory-bank-mcp": "dist/server.js"
+	},
 	"publishConfig": {
 		"registry": "https://npm.pkg.github.com/"
 	},
