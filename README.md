@@ -2,13 +2,14 @@
 
 ## サーバーの起動方法
 
-MCPサーバーは以下のコマンドで起動できるよ！
+MCPサーバーはまずビルドしてから起動するよ！
 
 ```sh
+yarn build
 yarn start
 ```
 
-これで `src/server.ts` が実行されるよ！
+これで `dist/server.js` が実行されるよ！
 
 ---
 
