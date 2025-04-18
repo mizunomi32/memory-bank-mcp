@@ -1,4 +1,25 @@
 {
-  "name": "memory-bank-mcp",
-  "packageManager": "yarn@4.4.1"
+	"name": "memory-bank-mcp",
+	"packageManager": "yarn@4.9.1",
+	"scripts": {
+		"biome:check": "biome check .",
+		"biome:format": "biome format .",
+		"biome:lint": "biome lint .",
+		"biome:fix": "biome check --apply .",
+		"test": "vitest",
+		"start": "ts-node src/server.ts"
+	},
+	"dependencies": {
+		"fastmcp": "^1.21.0",
+		"zod": "^3.24.3"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.9.4",
+		"@types/node": "^22.14.1",
+		"typescript": "^5.8.3",
+		"vitest": "^3.1.1"
+	},
+	"bin": {
+		"memory-bank-mcp": "src/server.ts"
+	}
 }
