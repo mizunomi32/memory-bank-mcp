@@ -1688,6 +1688,8 @@ __metadata:
     typescript: "npm:^5.8.3"
     vitest: "npm:^3.1.1"
     zod: "npm:^3.24.3"
+  bin:
+    memory-bank-mcp: src/server.ts
   languageName: unknown
   linkType: soft
 

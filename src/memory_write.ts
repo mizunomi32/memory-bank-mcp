@@ -1,11 +1,15 @@
-import * as fs from "fs";
-import * as path from "path";
+import * as fs from "node:fs";
+import * as path from "node:path";
 
-export async function memoryWriteExecute(targetDir: string | undefined, filename: string, content: string): Promise<string> {
+export async function memoryWriteExecute(
+	targetDir: string | undefined,
+	filename: string,
+	content: string,
+): Promise<string> {
 	if (!targetDir) {
 		return JSON.stringify({ error: "targetDirが指定されていません" });
 	}
-	if (!filename.endsWith('.md')) {
+	if (!filename.endsWith(".md")) {
 		return JSON.stringify({ error: "ファイル名は.mdで終わる必要があります" });
 	}
 	try {
@@ -15,4 +19,4 @@ export async function memoryWriteExecute(targetDir: string | undefined, filename
 	} catch (e) {
 		return JSON.stringify({ error: String(e) });
 	}
-} 
+}
