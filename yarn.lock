@@ -307,6 +307,7 @@ __metadata:
   dependencies:
     "@biomejs/biome": "npm:1.9.4"
     "@types/node": "npm:^22.14.1"
+    esbuild: "npm:^0.25.2"
     fastmcp: "npm:^1.21.0"
     typescript: "npm:^5.8.3"
     vitest: "npm:^3.1.1"
@@ -1017,7 +1018,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esbuild@npm:^0.25.0":
+"esbuild@npm:^0.25.0, esbuild@npm:^0.25.2":
   version: 0.25.2
   resolution: "esbuild@npm:0.25.2"
   dependencies:
